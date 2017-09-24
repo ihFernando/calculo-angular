@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+		<title>Angular para calculo de produtos</title>
+		
+		<!-- Bootstrap 3 e Fonte Lato -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Angular 1.4 -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="script.js"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-5" style="border-right:2px solid #eee">
+				<div ng-app="myApp" ng-controller="costCtrl">
+					<h1>Montar script que calcula soma dos produtos</h1>
+					<h2><strong>Montar caixa com produtos</strong></h2>
+					<!-- Pega os valores -->
+					<h4>
+						<label for="valor1">Produto 1: </label>
+						<div class="input-group">
+							<div class="input-group-addon">R$</div>
+							<input type="number" class="form-control" ng-model="valor1" name="valor1" id="valor1">
+						</div>
+					</h4>
+					<h4>
+						<label for="valor2">Produto 2: </label>
+						<div class="input-group">
+							<div class="input-group-addon">R$</div>
+							<input type="number" class="form-control" ng-model="valor2" name="valor2" id="valor2">
+						</div>
+					</h4>
+					<h4>
+						<label for="valor3">Produto 3: </label>
+						<div class="input-group">
+							<div class="input-group-addon">R$</div>
+							<input type="number" class="form-control" ng-model="valor3" name="valor3" id="valor3">
+						</div>
+					</h4>
+					<h4>
+						<label for="valor4">Produto 4: </label>
+						<div class="input-group">
+							<div class="input-group-addon">R$</div>
+							<input type="number" class="form-control" ng-model="valor4" name="valor4" id="valor4">
+						</div>
+					</h4>
+					<h4>
+						<label for="qtd">Quantidade: </label> 
+						<div class="input-group">
+							<div class="input-group-addon">R$</div>
+							<input type="number" class="form-control" ng-model="qtd" name="qtd" id="qtd">
+						</div>
+					</h4>
+					<!-- Retorna o resultado-->
+					<!-- Resultado Total-->
+					<h4><strong>Valor total:</strong> {{ total() | currency }}</h4>
+					<!-- Resultado total com 10% de desconto -->
+					<h4><strong>Valor total com desconto de 10%:</strong> {{ (total() - ((total()*10)/100)) | currency }}</h4>
+					<!-- Resultado final com taxa  de R$ 2,00 -->
+					<h4><strong>Valor final com taxa:</strong> {{ total() + 2 | currency }}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
